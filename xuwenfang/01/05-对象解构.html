@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象解构</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            uname: "Lily",
+            age: 22,
+            gender: "女",
+            school: {
+                grade: 4,
+                sId: 1007
+            }
+        };
+        // 1.基本对象解构(对应顺序,对应名称)
+        let {
+            uname,
+            age,
+        } = obj
+        console.log(uname, age);
+        // 2.可嵌套
+        let {
+            gender,
+            school: {
+                sId: sIdValue
+            }
+        } = obj;
+        console.log(gender, sIdValue);
+        // 3.可忽略的
+        // let {
+        //     gender,
+        //     {}
+        // } = obj;
+        // 4.不完全解构
+        let {
+            school: {
+                grade: aa
+            },
+            cc
+        } = obj;
+        console.log(aa, cc); //cc-->undefined
+        // 5.剩余运算符
+        let obj2 = {
+            uname: "Lily",
+            age: 22,
+            gender: "女",
+            school: {
+                grade: 4,
+                sId: 1007
+            }
+        };
+        let {
+            uname,
+            ...b
+        } = obj2;
+        console.log(uname, b);
+    </script>
+</body>
+
+</html>

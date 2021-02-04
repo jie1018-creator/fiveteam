@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol作为对象的key值</title>
+</head>
+
+<body>
+    <script>
+        let temp = Symbol('gender')
+        let obj1 = {
+                [temp]: "女"
+            }
+            // 定义对象的属性
+        Object.defineProperties(obj1, {
+            name: {
+                configurable: true,
+                enumerable: true,
+                writeable: true,
+                value: "zhangmeili"
+            },
+            age: {
+                configurable: true,
+                writable: true,
+                value: 20
+            }
+        })
+        console.dir(obj1); //所有属性
+        console.log(Object.keys(obj1)); //可枚举的属性
+        console.log(Object.getOwnPropertyNames(obj1)); //除了let声明的
+    </script>
+</body>
+
+</html>

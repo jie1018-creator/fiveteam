@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组的扩展方法</title>
+</head>
+
+<body>
+    <script>
+        // 1. Array.of(参数) 将参数中所有的值作为元素形成数组
+        // 参数值类型不限制
+        console.log(Array.of(1, 2, true, '3'));
+        // 没有参数返回空数组
+        console.log(Array.of());
+
+        // 2.Array.form(参数) 将类数组对象或迭代对象转换为真数组
+        var arr1 = [3, 4, 5, 6, '1', '4', 3, 4, undefined, null, true];
+        console.log(new Set(arr1)); //set形式
+        console.log(Array.from(new Set(arr1)));
+        // 方法
+    </script>
+</body>
+
+</html>

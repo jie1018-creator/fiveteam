@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高阶js</title>
+</head>
+
+<body>
+    <script>
+        var obj = {};
+        // 定义对象的多个属性
+        Object.defineProperties(obj, {
+            name: {
+                value: "张美丽"
+            },
+            _age: {
+                configurable: true,
+                enumerable: true,
+                writable: true,
+                value: 18
+            },
+            age: {
+                get: function() {
+                    return this._age
+                },
+                set: function(value) {
+                    this._age = value;
+                }
+            }
+        })
+        console.log(obj);
+        obj.age = 22;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>entries用法</title>
+</head>
+
+<body>
+    <script>
+        var arr = [11, 22, 33, 44, 55];
+        console.log(arr.entries());
+        // arr.entries():包含数组中每个索引的键值对
+        var arrnext = arr.entries();
+        console.log(arrnext.next().value);
+        console.log(arrnext.next().value);
+        console.log(arrnext.next().value);
+
+        var obj = {
+            uname: 'zhangmeili',
+            age: 18,
+            gender: '女'
+        }
+        console.log(Object.entries(obj));
+    </script>
+</body>
+
+</html>

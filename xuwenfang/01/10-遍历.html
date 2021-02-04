@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历</title>
+</head>
+
+<body>
+    <script>
+        // forEach遍历数组
+        let arr1 = [1, 2, 4, 6, 33, 67];
+        arr1.forEach(function(value) {
+            console.log(value);
+        });
+
+        // for in遍历数组的下标
+        // for of遍历数组的元素
+        for (var value of arr1) {
+            console.log(value);
+        }
+        let myMap = new Map();
+        myMap.set('a', 1)
+        myMap.set('b', 2)
+        myMap.set('c', 3)
+        for (var key of myMap) {
+            console.log(key); //["a", 1]形式
+        }
+        // for [key, value]遍历map的键值对
+        for (var [key, value] of myMap) {
+            console.log(key); //键
+            console.log(value); //值
+        }
+        // map.keys()获取所有属性
+        console.log(myMap.keys());
+        for (var key of myMap.keys()) {
+            console.log(key);
+        }
+
+        // map.entries(),获取所有属性的键值对
+        for (var [key, value] of myMap.entries()) {
+            console.log(key, value);
+        }
+        myMap.forEach(function(value, key) {
+            console.log(value); //属性值
+            console.log(key); //键
+        })
+    </script>
+</body>
+
+</html>

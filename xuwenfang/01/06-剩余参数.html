@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剩余参数</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <script>
+        function sum(a, ...b) {
+            console.log(a); //1
+            console.log(...b); //2 3 4 5 6 7
+            console.log(b); //[2, 3, 4, 5, 6, 7]
+        }
+        sum(1, 2, 3, 4, 5, 6, 7);
+        // 扩展运算符
+        // 1.对数组进行拆分
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = ['1', '2', '3', '4', '5'];
+        // 拆分后的数据类型保持一致
+        console.log(...arr1);
+        console.log(...arr2);
+        // 2.操作数组--合并数组
+        let arr3 = [...arr1, ...arr2];
+        console.log(arr3); //[1, 2, 3, 4, 5, "1", "2", "3", "4", "5"]
+        let rel = arr1.push(...arr2);
+        console.log(rel);
+        console.log(arr1); //10
+        // 3.伪数组变成数组
+        var boxes1 = document.querySelectorAll('.box1');
+        var boxes2 = document.getElementsByClassName('box1');
+        console.log(boxes1); // NodeList(3)  
+        console.log(boxes2); // HTMLCollection(3) 
+        console.log($('.box1')); // jQuery.fn.init(3) 
+
+        console.log([...boxes1]); //数组
+        console.log(Array.from(boxes1));
+
+        // 补充知识点:
+        // 1.伪数组的定义:对象,有length属性,不具有数组的方法
+        // 2. 伪数组有哪些 ?  NodeList(3)  HTMLCollection(3)  jQuery.fn.init(3)
+    </script>
+</body>
+
+</html>

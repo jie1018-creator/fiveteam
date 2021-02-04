@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set使用</title>
+</head>
+
+<body>
+    <script>
+        // Set本身是一个构造函数，用来生成  Set  数据结构
+        // set中没有重复的值
+
+        const arr1 = new Set()
+        const arr2 = new Set([1, 2, 3, 4, 5, 6])
+        console.log(arr1); // Set(0) {}
+        console.log(arr2);
+
+        // 数组去重
+        var arr = [12, 23, 12, 34, 45, 56, 67, 887, 12];
+        let setAr = new Set(arr);
+        console.log(setAr);
+        let arrs = [...setAr];
+        console.log(arrs);
+        // 方法
+        // values():获取所有属性值
+        console.log(arr2.values());
+        // 获取所有键值对
+        console.log(arr2.entries());
+        // add(value):返回Set解构本身
+        arr2.add(999);
+        // delete(value):删除某个值,返回结果为true表示成功删除
+        console.log(arr2.delete(1));
+        console.log(arr2);
+        // has(value):是否为Set成员
+        console.log(arr2.has(3)); //true
+        // clear():清除所有成员,没有返回值
+        arr2.clear()
+    </script>
+</body>
+
+</html>

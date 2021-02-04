@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.is()方法</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "张美丽"
+        };
+        var obj2 = obj;
+        // Object.is(value1, value2) 比较两个值是否为同一个值
+        // value1和value2完全一样则相等,对象必须使用的相同内存地址
+        console.log(Object.is(1, 1));
+        console.log(Object.is('1', '1'));
+        console.log(Object.is(true, true));
+        console.log(Object.is(undefined, undefined));
+        console.log(Object.is(null, null));
+        console.log(Object.is(obj, obj2));
+        console.log(Object.is(Function, Function));
+        console.log(Object.is(['1'], ['1'])); //false
+        // ==运算符在进行比较前,会进行隐士类型转换
+        // ===运算符会将+0和-0视为相等
+        console.log(NaN === NaN) //false
+
+        // 补充:
+        console.log(0 / 0); //NaN
+        console.log(1 / 0); //Infinity
+        console.log(1 / 0 * 0); //NaN
+    </script>
+</body>
+
+</html>
