@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // map对象保存键值对,可以是任意值
+        let myMap = new Map();
+        console.log(myMap);
+
+
+        // 1.key是字符串
+        let name = "zahngmeili";
+        myMap.set(name, "姓名值");
+        console.log(myMap); // Map(1) {"zahngmeili" => "姓名值"}
+        console.log(myMap.get(name));
+        console.log(myMap.get("zahngmeili"));
+
+        // 2.key是对象
+        let pro = {
+            age: 22
+        };
+        myMap.set(pro, "对象值");
+        console.log(myMap);
+        // 3.key是函数
+        let fun = function() {};
+        myMap.set(fun, '函数值')
+        console.log(myMap);
+        // 4.key是NaN
+        myMap.set(NaN, '不是数字')
+        console.log(myMap.get(NaN));
+        // 5.DOM对象
+        var box = document.querySelector('.box');
+        myMap.set(box, 'DOM对象')
+        console.log(myMap);
+    </script>
+</body>
+
+</html>

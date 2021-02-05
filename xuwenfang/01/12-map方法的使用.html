@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map使用方法</title>
+</head>
+
+<body>
+    <script>
+        let myMap = new Map();
+        myMap.set('a', '1')
+        myMap.set('b', '2')
+        myMap.set('c', '3');
+
+        // size:获取大小
+        console.log(myMap.size);
+        // has():是否包含指定键的元素是否存在
+        console.log(myMap.has('b'));
+        // values():获取所有value值
+        console.log(myMap.values());
+
+        // delete():删除某个属性
+        myMap.delete('a')
+        console.log(myMap);
+
+        // // clear():清除所有
+        // myMap.clear()
+        // console.log(myMap);
+    </script>
+</body>
+
+</html>

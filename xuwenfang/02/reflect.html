@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect</title>
+</head>
+
+<body>
+    <script>
+        let person = {
+            name: "张美丽",
+            age: 18,
+            get say() {
+                return this.name + this.age;
+            }
+        }
+        let personA = {
+            name: "蛋蛋",
+            age: 34
+        }
+        console.log(personA);
+        console.log(Reflect.get(person, 'age'));
+        // console.log(Reflect.get(personB, 'age'));
+        // console.log(Reflect.get(person, 'school'));
+        console.log(Reflect.get(person, 'say', personA));
+        console.log(Reflect.get(person, 'say'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy代理</title>
+</head>
+
+<body>
+    <script>
+        // Proxy是ES6引入的API
+        // 1. 对目标对象读取, 函数调用等操作进行拦截
+        // 2.通过对代理对象向进行操作,进而操作对象
+        let target = {
+            name: "zhangmeili",
+            age: 22
+        };
+        let handler = {
+            get: function(target, key) {
+                return target[key];
+            },
+            set: function(target, key, value) {
+                target[key] = value;
+            }
+        };
+        // Proxy对象组成:Proxy(target,handler)
+        // target是目标对象
+        // handler也是一个对象,指的是target的行为
+        let proxy = new Proxy(target, handler);
+        console.log(proxy);
+
+        // Proxy:优点
+        // 实现拦截和监视外部对对象的访问。
+        // 降低函数和类的复杂， 优雅的写出代理代码。
+        // 在复杂操作前对操作进行校验或对所需资源进行管理。
+    </script>
+</body>
+
+</html>

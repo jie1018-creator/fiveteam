@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+
+<body>
+    <script>
+        let obj1 = {
+            name: "zhangmeili",
+            age: 22
+        };
+        // 扩展运算符
+        // 1.拷贝对象(深拷贝)
+        let obj2 = {...obj1
+        };
+        console.log(obj2);
+        obj2.age = 18;
+        console.log(obj2);
+        console.log(obj1);
+        // 2.合并对象
+        // 以后者为准,会覆盖前面的属性
+        let obj3 = {
+            name: "jiang",
+            age: 18,
+            say: function() {
+                return this.name;
+            }
+        };
+        let obj4 = {...obj1,
+            ...obj3
+        };
+        console.log(obj4);
+        // 3.合并Map()
+        var map1 = new Map([
+            ['uname', '张美丽']
+        ]);
+        var map2 = new Map([
+            ['gender', '男']
+        ]);
+        var map = new Map([...map1, ...map2])
+        console.log(map);
+    </script>
+</body>
+
+</html>

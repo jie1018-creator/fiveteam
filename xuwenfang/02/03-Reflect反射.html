@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect</title>
+</head>
+
+<body>
+    <script>
+        // Reflect相当于Object的工具类使用
+        let obj = {
+            name: "zhangmeili",
+            age: 22,
+            get doing() {
+                return this.name;
+            }
+        };
+        // 静态方法
+        // Reflect.get(target,key,value) 返回target对象中key的值
+        console.log(Reflect.get(obj, "doing"));
+        let receiver = {
+            name: "lily",
+            age: 34,
+        };
+        // 当target对象中存在name属性的get方法,get中的this会被receiver绑定
+        console.log(Reflect.get(obj, "doing", receiver));
+        console.log(Reflect.get(obj, 'cc')) //target中没有这个属性,undefined
+        console.log(Reflect.get(obj1, 'name')) //没有target这个对象,会报错
+    </script>
+</body>
+
+</html>

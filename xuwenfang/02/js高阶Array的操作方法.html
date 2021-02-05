@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象Array的操作方法</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [2, 45, 6, 34, 8, 12, 90];
+        // 1.forEach遍历数组,没有返回值
+        arr1.forEach(function(value, index, arr1) {
+            // console.log(value);
+            // console.log(index);
+            // console.log(arr1);
+        });
+        // 2.map遍历数组，返回一个新数组(内部函数处理后的新数组),不会改变原数组
+        var returnArr1 = arr1.map(function(value) {
+            return value + ""
+        });
+        console.log(returnArr1);
+        // 3.filter过滤数组,返回一个新数组(符合条件的所有元素),不改变原数组
+        var returnArr2 = arr1.filter(function(value) {
+            return value > 50;
+        });
+        console.log(returnArr2);
+        // 4.some,查找数组中是否有满足条件的元素,返回值true/false
+        var flag1 = arr1.some(function(value) {
+            return value > 50;
+        });
+        console.log(flag1); //true
+        // 5.every,检测数组中元素是否每一个符合条件,返回值true/false
+        // 如果数组中检测到有一个元素不满足，则整个表达式返回 *false* ，且剩余的元素不会再进行检测。
+        var flag2 = arr1.every(function(value) {
+            return value > 50;
+        });
+        console.log(flag2); //false
+
+        // 6. find, 返回满足条件的第一个元素, 返回值true/false
+        // 每一个元素都会调用一次函数,检测到一个满足的元素,后续元素不再调用函数
+        // 如果没有符合条件的元素返回 undefined
+        var flag3 = arr1.find(function(value) {
+            return value > 12;
+        });
+        console.log(flag3); //45
+
+        // 7.reduce,累加器,数组中元素从左往右开始缩减,最终计算为一个值
+        // initialValue 作为第一次调用 `callback`函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。
+        // 返回值为总和
+        var sum = arr1.reduce(function(total, value, index, arr1) {
+            console.log(total);
+            return total + value;
+        })
+        console.log(sum);
+        var sum = arr1.reduce(function(total, value, index, arr1) {
+            console.log(total);
+            return total + value;
+        }, 8)
+        console.log(sum);
+
+
+        // 总结
+        // 1.forEach 遍历数组,没有返回值
+        // 2.map 遍历数组,返回经过函数在内部处理过的新数组
+        // 3.filter 过滤数组, 返回符合条件的所有元素(数组形式)
+        // 4.some 检测数组中是否有符合条件的元素,有就返回true
+        // 5.every 检测数组中的每一个元素是否都符合指定条件,全部符合返回true,有一个不满足就不在检测,直接返回false
+        // 6.find 查找数组中满足条件的第一个元素,找到满足的,就不会对后面的元素调用函数,没找到返回undefined
+        // 7.reduce 相当远累加器,返回值为数组中元素的总和,initialValue为第一次调用函数中total的初始值
+    </script>
+</body>
+
+</html>

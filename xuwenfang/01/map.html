@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+
+<body>
+    <script>
+        let mapDom = new Map();
+        // console.log(mapDom);
+        // 1.key是字符串
+        var keyString = "name";
+        mapDom.set(keyString, "张美丽");
+        console.log(mapDom.get(keyString));
+        console.log(mapDom.get("name"));
+        // 2.key可以是Object
+        var keyObj = {
+            sId: "id值"
+        };
+        mapDom.set(keyObj, "1007");
+        console.log(mapDom.get(keyObj));
+        // 3.key可以是函数
+        var keyFun = function fun1() {};
+        mapDom.set(keyFun, "函数");
+        console.log(mapDom.get(keyFun));
+        // console.log(mapDom);
+    </script>
+</body>
+
+</html>

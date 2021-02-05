@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串扩展方法</title>
+</head>
+
+<body>
+    <script>
+        var str1 = "apple and pear";
+        // 1.startsWith():判断参数字符串是否在原字符串的头部
+        console.log(str1.startsWith('app'));
+        console.log(str1.startsWith('apP'));
+        // 2.endsWith():判断参数值是否在原字符串的尾部
+        console.log(str1.endsWith(' pear'));
+        // 3.repeat():返回指定参数重复次数的新串
+        console.log('a'.repeat(5));
+        // 4.padStart(targetLength, padString):用给定的字符补全到给定的长度,补到字符开头
+        console.log('a'.padStart(5, '1'));
+        // 5.padEnd(targetLength, padString):用给定的字符补全到给定的长度,补到字符结尾
+        console.log('a'.padEnd(10, "c"));
+        // 6.模板字符串
+        var str2 = {
+            name: "张美丽"
+        }
+        console.log(`Hello ${str2.name}`);
+        // 特别强调repeat
+        // 参数 (-1~1) 之间 返回""
+        // 参数大于1时,向下取整
+        // 参数不能小于0
+        console.log('s'.repeat(-0.8));
+        // console.log('s'.repeat(0.8));
+    </script>
+</body>
+
+</html>

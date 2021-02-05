@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var pro = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                var num = Math.floor(Math.random() * 10);
+                console.log(num);
+                if (num < 3) {
+                    resolve('success');
+                } else {
+                    reject('fail');
+                }
+            }, 1000);
+        });
+        pro.then(function(data) {
+            console.log(data);
+        }, function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+
+</html>
