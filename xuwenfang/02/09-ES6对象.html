@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6对象中属性名,方法名可以简写
+        let name = "张美丽";
+        let age = 22;
+        let obj1 = {
+            // 1.对象属性的简写
+            name,
+            age,
+            // 2.对象方法的简写
+            doing() {
+                return '您好';
+            },
+            // 3.属性名表达式
+            ["play" + "doing1"]() {
+                return 'playDoing1'
+            },
+            [`playdoing2`]() {
+                return 'playDoing2'
+            }
+
+        };
+        console.log(obj1);
+        console.log(obj1.doing());
+        // 原生js
+        let obj2 = {
+            name: "张美丽",
+            age: 22,
+            doing: function() {
+                console.log();
+                return '您好';
+            }
+        }
+        console.log(obj2);
+        console.log(obj2.doing());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+
+<body>
+    <script>
+        // 数据类型:String Number Boolean Null Undefined     Object    Symbol
+        // Symbol是原始数据类型,不是对象,不能使用new
+
+        // 使用:
+        let str1 = Symbol('zhangmeili');
+        // alert(str1) //符号值不能转化为字符串
+        console.log(str1); //Symbol(zhangmeili)
+        console.log(str1.toString()); //Symbol(zhangmeili)
+        console.log(typeof str1); //Symbol
+
+        // 相同参数 Symbol() 返回的值不相等
+        // Symbol不具备饮食类型转换
+        let str2 = Symbol('zhangmeili');
+        console.log(str1 == str2); //false
+        console.log(str1 === str2); //false
+
+        // 对象中使用Symbol定义属性值,[key],访问需要[key]
+        let temp = Symbol("gender")
+        let obj = {
+            name: "zhangmeili",
+            age: 22,
+            [temp]: "女"
+        }
+        console.log(obj);
+        console.log(obj[temp]);
+    </script>
+</body>
+
+</html>

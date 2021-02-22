@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初级js中String的操作方法</title>
+</head>
+
+<body>
+    <script>
+        var str1 = "The starts";
+        // 1.charAt(index) 返回指定索引处的字符
+        console.log(str1.charAt(2));
+        // 2.charCodeAt(index) 返回指定索引处字符的ASCII
+        console.log(str1.charCodeAt(2));
+        // 3.String.fromCharCode() 将一个Unicode转换为字符
+        console.log(String.fromCharCode(199));
+        // 4.concat() 连接两个或多个字符串
+        console.log('a'.concat('pple', ' pear'));
+        // 5.slice(start,end) 复制指定字符串片段
+        console.log(str1.slice(4, 7));
+        // 6.subString(from,to) 复制指定字符串片段
+        console.log(str1.substring(4, 7));
+        // 7.substr(start,length) 截取指定长度的字符串
+        console.log(str1.substr(4, 5));
+        // var str1 = "The starts";
+        // 8.indexOf(serValue,start) 找到指定字符第一次出现的索引,超出检索整串,省略start检索整个串,找不到返回-1
+        // 负数从0开始检索
+        console.log(str1.indexOf('a', 2)); // 6
+        // 9. lastIndexOf(serValue, start) 返回指定字符最后一次出现的索引
+        console.log(str1.lastIndexOf('a', -8)); //-1
+        console.log(str1.lastIndexOf('a'));
+        // 10.trim() 去除字符串两边的空白   
+        console.log('   345  '.trim());
+        // 11.toUpperCase() 将字符串转化为大写
+        console.log('Apple'.toUpperCase());
+        // 12.toLowerCase() 将字符串转化为小写
+        console.log('Apple'.toLowerCase());
+        // 13.search(serValue) 查找字符串或者正则表达式,返回出现的下标值,找不到-1
+        console.log(str1.search('starts'));
+        // 14.replace(old,new) 替换指定字符(只能替换一个)
+        console.log(str1.replace('s', 'S'));
+        console.log(str1.replace(/s/g, 'S'));
+        // 15.split(sep,length) 将字符串以sep分隔开,返回数组形式的串
+        console.log('http://www.baidu.com'.split('//'));
+        // 16.match(value/regexp) 检索指定的字符,并返回值,找不到null
+        console.log(str1.match('he'));
+        console.log(str1.match('ccc'));
+        console.log('s2ta34rts'.match(/\d/g));
+
+        // 总结
+        // substring substr slice
+        // 都可以截取字符串的片段
+        // slice和substring的参数基本一致,但是substring的参数不能为负数
+        // substring和substr两者参数不一样,前者是开始和结束,后者是开始和截取的长度
+    </script>
+</body>
+
+</html>

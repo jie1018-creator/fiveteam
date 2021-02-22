@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6中数值的运算</title>
+</head>
+
+<body>
+    <script>
+        // 1.数值的表示
+        // 二进制(0b或0B)
+        console.log(0b11 == 3); //true
+        // 八进制(0o或0O)
+        console.log(0o11 == 9); //true
+
+        // 2.方法
+        // Number.isFinite(参数) 判断参数是否是有限数
+        // 没有隐士类型转换,所有非数值都返回false
+        console.log(Number.isFinite(1)) //true
+        console.log(Number.isFinite(NaN)) //false
+        console.log(Number.isFinite('15')) //false
+        console.log(Number.isFinite(true)) //false
+        console.log(Number.isFinite(Infinity)); // false
+        console.log(Number.isFinite(-Infinity)); // false
+
+        // Number.isNaN(参数) 判断参数是否为NaN
+        console.log(Number.isNaN(NaN))
+        console.log(Number.isNaN('true' / 0)); // true
+        // 全局中isNaN()中,在判断之前,会将非数值向数值转换
+        // 而Number.isNaN(), 不存在隐式的 Number() 类型转换,非 NaN 全部返回 false
+        Number.isNaN("NaN"); // false
+        Number.isNaN(undefined); // false
+        Number.isNaN({}); // false
+        Number.isNaN("true"); // false
+    </script>
+</body>
+
+</html>

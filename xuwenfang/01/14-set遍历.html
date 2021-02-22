@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set遍历</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = new Set([11, 22, 33, 44, 55, 66]);
+        arr1.forEach(function(value, index) {
+            console.log(value, index);
+        })
+        for (var key of arr1) {
+            console.log(key);
+        }
+    </script>
+</body>
+
+</html>

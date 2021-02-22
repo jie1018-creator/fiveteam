@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const声明</title>
+</head>
+
+<body>
+    <script>
+        // const声明常量(内存地址不能改变)
+        console.log(NUM1);
+        const NUM1 = "active";
+        // 常量赋值后不能修改
+        // NUM1 = "changed";
+
+        // 常量声明必须初始化
+        // const NUM2;
+
+
+        // 如果是基本数据类型，不能更改值，如果是复杂数据类型，不能更改地址值
+        if (true) {
+            const NUM3 = "disabled";
+        }
+        console.log(NUM3);
+        // 总结:
+        // 1.常量声明后必须赋值
+        // 2.常量修改后不能修改
+        // 3.具有块级作用域的特点
+    </script>
+</body>
+
+</html>

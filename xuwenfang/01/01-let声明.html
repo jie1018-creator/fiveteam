@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let声明</title>
+</head>
+
+<body>
+    <script>
+        // ES6是 ECMAScript 6.0 ,弥补ES5不足
+
+        // 使用var声明变量的特点
+        // 1.变量提升
+        // 2.允许重复赋值
+        // 3.变量存在于window中
+        // 4.for循环中保存不到i值
+        console.log(anum1); //undefined
+        var anum1 = 123;
+        anum2 = 456;
+        console.log(anum2); //456
+        var anum3 = 123;
+        var anum3 = 234;
+        console.log(anum3); //234
+        console.dir(window);
+        if (true) {
+            var anumc = 789;
+        }
+        console.log(anumc); //789
+
+
+        // 使用let声明的变量
+        // 1.使用let声明不存在变量提升
+        // 2.不允许重复赋值
+        // 3.使用let声明的不存在于window
+        // 4.使用let声明的变量具有块级作用域的特点
+        // console.log(anum4); // 在初始化之前无法访问“anum4”
+        let anum4 = 456;
+        let anum5 = 567;
+        // let anum5 = 678; // 标识符'anum5'已经声明;
+        console.dir(window);
+        if (true) {
+            let anumb = 789;
+        }
+        // console.log(anumb); //anumb没有定义  访问不到
+        // 暂时性死区问题
+        let anum6 = "active";
+        if (true) {
+            anum6 = "disabled";
+            // let anum6;
+            // 利用let声明的变量会绑定在这个块级作用域,不会受外界的影响
+        }
+        console.log(anum6);
+
+        // 经典例题
+        // var
+        var arr1 = [1, 2, 3, 4, 5, 6, 7]
+        for (var i = 0; i < arr1.length; i++) {
+            arr1[i] = function() {
+                console.log(i);
+            }
+        }
+        // 保存不到i值
+        arr1[0](); //7
+        arr1[1](); //7
+        // let
+        for (let i = 0; i < arr1.length; i++) {
+            arr1[i] = function() {
+                console.log(i);
+            }
+        }
+        arr1[0](); //0
+        arr1[1](); //1
+        // 总结:
+        // 1.let声明没有变量提升,var没有
+        // 2.let不能重复赋值,var可以
+        // 3.let声明的变量不存在于window,var声明的在
+        // 4.let具有块级作用域的特点,且存在暂时性死区问题
+        // 5.for循环中的i值保存,let可以保存,var不可以
+    </script>
+</body>
+
+</html>
