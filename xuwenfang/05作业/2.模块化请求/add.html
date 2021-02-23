@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加</title>
+    <style>
+        .add-box {
+            height: 500px;
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 添加学生信息 -->
+    <!-- <form class="add-box"> -->
+    <div class="add-box">
+        <h3>添加学生信息</h3>
+        <p>姓名:<input type="text" name="uname" id="uname" required></p>
+        <p>性别:<input type="text" name="sex" id="sex"></p>
+        <p>年龄:<input type="number" name="age" required id="age"></p>
+        <p>地址:<input type="text" name="address" id="address"></p>
+        <p><input type="submit" value="保存" class="save"><input type="reset" value="清空" class="clear"></p>
+        <!-- </form> -->
+    </div>
+    <script>
+        var uname = document.querySelector('#uname');
+        var sex = document.querySelector('#sex');
+        var age = document.querySelector('#age');
+        var address = document.querySelector('#address');
+        var save = document.querySelector('.save');
+        save.onclick = function() {
+            var obj = {
+                name: uname.value,
+                sex: sex.value,
+                age: age.value,
+                address: address.value
+            }
+            ajax2('POST', 'http://localhost:3000/api/addstudent', obj)
+        }
+
+        function ajax2(method, url, data) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                        location.href = './index.html'
+                    };
+                };
+            };
+        }
+    </script>
+</body>
+
+</html>

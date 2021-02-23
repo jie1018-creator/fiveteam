@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOW Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box-top {
+            width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        
+        .box-bottom {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        
+        .box-bottom table {
+            width: 800px;
+            border-collapse: collapse;
+        }
+        
+        .box-bottom table th,
+        .box-bottom table td {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        
+        .update_btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <div class="box-top">
+            <label>姓名:<input type="search" class="searchValue"  autocomplete="off"></label>
+            <button class="searchBtn">搜索</button>
+            <a href="add.html" class="add">添加</a>
+        </div>
+        <div class="box-bottom">
+            <table>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((value)=>{ %>
+                        <tr>
+                            <td>
+                                <%=value.name %>
+                            </td>
+                            <td>
+                                <%=value.sex %>
+                            </td>
+                            <td>
+                                <%=value.age %>
+                            </td>
+                            <td>
+                                <%=value.address %>
+                            </td>
+                        </tr>
+                        <% });%>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</body>

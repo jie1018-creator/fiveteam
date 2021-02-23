@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOW Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box-top {
+            width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        
+        .box-bottom {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        
+        .box-bottom table {
+            width: 800px;
+            border-collapse: collapse;
+        }
+        
+        .box-bottom table th,
+        .box-bottom table td {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        
+        .update_btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <div class="box-top">
+            <label>姓名:<input type="search" class="searchValue"  autocomplete="off"></label>
+            <button class="searchBtn">搜索</button>
+            <a href="add.html" class="add">添加</a>
+        </div>
+        <div class="box-bottom">
+            <table>
+                <thead>
+                    <tr>
+                        <td>姓名</td>
+                        <td>性别</td>
+                        <td>年龄</td>
+                        <td>地址</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </form>
+    <script>
+        var tbody = document.querySelector('tbody');
+        var btn = document.querySelector('button');
+        var searchValue = document.querySelector('.searchValue');
+
+        function ajax(method, serName, url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url + "?name=" + serName);
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                        var data = JSON.parse(xhr.response);
+                        data.forEach((value) => {
+                            console.log(data);
+                            tbody.innerHTML += `<tr><td>${value.name}</td><td>${value.sex}</td><td>${value.age}</td><td>${value.address}</td></tr>`;
+                        });
+                    }
+                }
+            };
+        };
+        ajax('GET', "", 'http://localhost:3000/api/getstudent');
+        // 搜索
+        btn.onclick = function() {
+            var value = searchValue.value.trim();
+            ajax('GET', {
+                name: value
+            }, 'http://localhost:3000/api/getstudent')
+        };
+    </script>
+</body>
+
+</html>
