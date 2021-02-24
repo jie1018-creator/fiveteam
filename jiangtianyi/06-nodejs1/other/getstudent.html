@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        
+        table tr th {
+            border: 1px solid #ccc;
+        }
+        
+        table tr td {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>gender</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var tbody = document.querySelector('tbody');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:3000/api/zhao/getstudent?');
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                    console.log(JSON.parse(xhr.response));
+                    var data = JSON.parse(xhr.response);
+                    data.forEach((value) => {
+                        tbody.innerHTML += `<tr><td>${value.id}</td><td>${value.name}</td><td>${value.gender}</td><td>${value.age}</td></tr>`;
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

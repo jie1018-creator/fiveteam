@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var outDate = new Date();
+        // outDate.setDate(outDate.getDate() + 7);
+        // document.cookie = 'name=zhuzhu,age=18;expires=' + outDate;
+        // document.cookie = 'name=wenfang,age=20;expires=' + outDate;
+        // 1.设置cookie
+        function setCookie(key, value, time) {
+            var outDate = new Date();
+            outDate.setDate(outDate.getDate() + time);
+            document.cookie = key + '=' + value + ';expires=' + outDate;
+        }
+        setCookie('wid', '123456', 5);
+        // 2.得到cookie的value值
+        function getCookie(key) {
+            const str = document.cookie;
+            const coObj = {};
+            let arr = str.split('; ');
+            console.log(arr);
+            arr.forEach((value) => {
+                const relarr = value.split('=');
+                coObj[relarr[0]] = relarr[1];
+            })
+            return coObj[key];
+        }
+        console.log(getCookie('wid'));
+        // 3.删除cookie
+        function removeCookie(key) {
+            setCookie(key, '1', -1)
+        };
+        removeCookie('name');
+    </script>
+</body>
+
+</html>
