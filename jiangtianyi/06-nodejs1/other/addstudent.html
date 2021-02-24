@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <h3>添加信息</h3>
+        <p>姓名
+            <input type="text" name="uname">
+        </p>
+        <p>性别<input type="text" name="gender"></p>
+        <p>年龄<input type="number" name="age"></p>
+        <button>添加</button>
+
+    </div>
+    <script>
+        var uname = document.querySelector('input[name=uname]');
+        var gender = document.querySelector('input[name=gender]');
+        var age = document.querySelector('input[name=age]');
+        var btn = document.querySelector('button');
+        console.log(btn);
+        console.log(uname);
+        btn.onclick = function() {
+            var obj = {
+                name: uname.value,
+                gender: gender.value,
+                age: age.value
+            };
+            console.log(obj);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3000/api/zhao/addstudent');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            console.log(obj);
+            xhr.send(JSON.stringify(obj));
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                        alert('添加成功');
+                        location.href = './getstudent.html'
+                    };
+                };
+            };
+        };
+    </script>
+</body>
+
+</html>
