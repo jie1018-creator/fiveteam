@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  写入cookie 初始化包  服务器形式打开
+        //   *document.cookie  写= 不是()
+        //   设置过期时间 date.setDate(date.getDate()+过期时间)
+        //   document.cookie获取所有用户信息
+        //   删除某个cookie setCookie(key,"1",-1)
+
+        function setCookie(key, value, date) {
+            var outTime = new Date();
+            outTime.setDate(outTime.getDate() + date)
+            document.cookie = key + "=" + value + ";" + "expires=" + outTime
+        };
+        setCookie("zhangmeili1", "123456", 7);
+        setCookie("zhangmeili2", "345678", 7);
+        setCookie("zhangmeili3", "234556", 7);
+
+
+        //   document.cookie 获取所有cookie信息
+        function getCookie(key) {
+            let obj = {}
+            let str = document.cookie;
+            let arr = str.split("; ");
+            arr.forEach((value) => {
+                var relArr = value.split("=");
+                obj[relArr[0]] = relArr[1];
+            })
+            return obj[key]
+        }
+        console.log(getCookie("zhangmeili2"));
+
+        function deleteCookie(key) {
+            setCookie(key, "1", -1)
+        }
+        deleteCookie("zhangmeili1")
+    </script>
+</body>
+
+</html>

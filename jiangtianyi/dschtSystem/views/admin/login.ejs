@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="/common/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/basic.css">
+    <script src="/js/jquery-1.10.1.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <!-- 用户登录页面 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form class="form-horizontal">
+                    <span class="heading">用户登录</span>
+                    <!-- 用户名或电子邮件 -->
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="用户名或电子邮件">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <!-- 密　码 -->
+                    <div class="form-group help">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="密　码">
+                        <i class="fa fa-lock"></i>
+                        <a href="#" class="fa fa-question-circle"></a>
+                    </div>
+                    <!-- 登录按钮 -->
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default btn-block" id="btn">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 提示框 -->
+    <div class="sign">
+        <h3>提示</h3>
+        <div class="sign_C">用户名或密码错误</div>
+        <button class="sure">确定</button>
+    </div>
+    <script type="text/javascript">
+        console.log($('.sign'));
+        document.getElementById("btn").onclick = function() {
+            if ($('#inputEmail3').val == '猪猪' && $('#inputPassword3').val == '123456') {
+                window.location.href = "productlist"
+            } else {
+                $('.sign').css('display', 'block');
+                $('#inputEmail3').val = '';
+                $('#inputPassword3').val = '';
+            }
+        };
+        $('.sure').click(function() {
+            $('.sign').css('display', 'none')
+        });
+    </script>
+</body>
+
+</html>
